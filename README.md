@@ -11,7 +11,7 @@ The packages are as following： `lem4, pipeR, MASS`
 
 ### Support
 Before contacting us, please try the following: <br>
-* The wiki has tutorials on RNA-Seq data, differentially expressed and variance component test, score statistics and generalized linear mixed model (GLMM).<br>
+* The wiki has tutorials on RNA-Seq data, generalized linear mixed model (GLMM), variance component test and score statistics.<br>
 * The methods are described in the [papers](https://peerj.com/articles/3797/). <br>
 
 If that doesn't work, you can get in touch with us via the email.
