@@ -17,7 +17,7 @@ Before contacting us, please try the following: <br>
 If that doesn't work, you can get in touch with us via the email.
 
 ### Citation
-If you use the software or the LD Score regression intercept, please cite <br>
+If you use the software, please cite <br>
 [Sheng Yang, Fang Shao, Weiwei Duan, Yang Zhao, Feng Chen. Variance component testing in identifying the differentially expressed genes from RNA-seq data. PeerJ. 5:e3797.](https://peerj.com/articles/3797/)
 
 
