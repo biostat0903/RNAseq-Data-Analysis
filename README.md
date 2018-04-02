@@ -1,9 +1,9 @@
 # RNAseq-Data-Analysis
-Algorithms of the RNASeq data
+The repository includes the algorithms for RNA-Seq data analysis, including differentially expressed (DE) and interactions. 
 
 ## [isoVCT](https://peerj.com/articles/3797/)
 
-Variance Component Test with isoform (isoVCT) is an algorithm for identifying the differentially expressed (DE) genes for next generation seqencing (NGS) data. It can also automatically select a suitable distribution (Poisson or nagative binomial) of each gene. 
+Variance Component Test with isoform (isoVCT) is an algorithm for identifying the DE genes for next generation seqencing (NGS) data. It can also automatically select a suitable distribution (Poisson or nagative binomial) of each gene. 
 
 ### Getting Started 
 First, you will need to install [R](https://cran.r-project.org/mirrors.html) as well as the packages listed under the requirements header below. All of the packages you can download by R. <br>
