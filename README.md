@@ -7,7 +7,7 @@ Variance Component Test with isoform (isoVCT) is an algorithm for identifying th
 
 ### Getting Started 
 First, you will need to install [R](https://cran.r-project.org/mirrors.html) as well as the packages listed under the requirements header below. All of the packages you can download from CRAN package. <br>
-The packages are as following： `lem4, pipeR, MASS`.
+The packages are as following： `lme4, pipeR, MASS`.
 
 ### Support
 Before contacting us, please try the following: <br>
