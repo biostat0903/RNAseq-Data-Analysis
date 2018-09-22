@@ -44,7 +44,6 @@ PEA_res <- PEA(example[[1]], example[[2]], example[[3]], example[[4]])
 ```
 ### Support
 Before contacting us, please try the following: <br>
-* The wiki has tutorials on RNA-Seq data, generalized linear mixed model (GLMM), variance component test and score statistics.<br>
 * The methods are described in the [papers](https://peerj.com/articles/3797/). <br>
 
 If that doesn't work, you can get in touch with us via the email.
