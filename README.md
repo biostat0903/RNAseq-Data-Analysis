@@ -1,5 +1,5 @@
 # RNAseq-Data-Analysis
-The repository includes the algorithms for RNA-Seq data analysis, including differentially expressed (DE) and interactions. 
+The repository includes the algorithms for RNA-Seq data analysis, including differentially expressed (DE) and gene-pathway interactions. 
 
 ## [isoVCT](https://peerj.com/articles/3797/)
 
@@ -21,5 +21,9 @@ If you use the software, please cite <br>
 [Sheng Yang, Fang Shao, Weiwei Duan, Yang Zhao, Feng Chen. Variance component testing in identifying the differentially expressed genes from RNA-seq data. PeerJ. 5:e3797.](https://peerj.com/articles/3797/)
 
 
-BGKM
+## PEA
+Permutaion based gEne-pAthway interactions identification in binary phenotype (PEA) is an algorithm for testing the gene-pathway interaction.
+### Getting Started 
+First, you will need to install [R](https://cran.r-project.org/mirrors.html) as well as the packages listed under the requirements header below. All of the packages you can download from CRAN package. <br>
+The packages are as following： `Rcpp`.
 --------------------
