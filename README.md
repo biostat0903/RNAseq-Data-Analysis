@@ -1,5 +1,5 @@
 # RNAseq-Data-Analysis
-The repository includes the algorithms for RNA-Seq data analysis, including differentially expressed (DE) and gene-pathway interactions. 
+The repository includes the algorithms for RNA-Seq data analysis, including differentially expressed (DE) and gene-pathway interactions (GPI). 
 
 ## [isoVCT](https://peerj.com/articles/3797/)
 
@@ -23,9 +23,32 @@ If you use the software, please cite <br>
 --------------------
 ## PEA
 Permutaion based gEne-pAthway interactions identification in binary phenotype (PEA) is an algorithm for testing the gene-pathway interaction.
-### Getting Started 
-First, you will need to install [R](https://cran.r-project.org/mirrors.html) as well as the packages listed under the requirements header below. All of the packages you can download from CRAN package. <br>
-The packages are as following： `Rcpp`.
+### Installation 
+The code depends on `Rcpp` package.
+```R
+library(Rcpp)
+sourceCpp("yourpath/PEA.cpp")
+```
+### Example
+We have upload the example data (example.Rdata).<br>
+* `example[[1]]`: the binary phenotye.<br>
+* `example[[2]]`: the covariate.<br>
+* `example[[3]]`: the expresion level of genes in the core pathway.<br>
+* `example[[4]]`: the expresionlevel of potential gene.<br>
+### Testing of the GPI
+```R
+PEA_res <- PEA(example[[1]], example[[2]], example[[3]], example[[4]])
+[[1]] 
+[[2]] 
+[[3]] 
+```
+### Support
+Before contacting us, please try the following: <br>
+* The wiki has tutorials on RNA-Seq data, generalized linear mixed model (GLMM), variance component test and score statistics.<br>
+* The methods are described in the [papers](https://peerj.com/articles/3797/). <br>
 
+If that doesn't work, you can get in touch with us via the email.
 
+### Citation
+If you use the software, please cite <br>
 
