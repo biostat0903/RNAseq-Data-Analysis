@@ -273,6 +273,6 @@ SEXP PEA(SEXP yIn, SEXP covarIn, SEXP varIn, SEXP testVarIn, SEXP permIn) {
 }
 
   ///////////////////////////////////////
- ///  		CODE END HERE            ///
+ ///  		CODE END HERE        ///
 ///////////////////////////////////////
 
