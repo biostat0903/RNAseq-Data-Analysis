@@ -26,7 +26,11 @@ Permutaion based gEne-pAthway interactions identification in binary phenotype (P
 ### Installation 
 The code depends on `Rcpp` package.
 ```R
+#install packages
+install.packages("Rcpp")
+#library Rcpp package
 library(Rcpp)
+#complie the cpp code
 sourceCpp("yourpath/PEA.cpp")
 ```
 ### Example
