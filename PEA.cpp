@@ -159,7 +159,7 @@ int est(vec y, mat covar, mat K, double tauIn, vec betaIn, vec alphaIn,
 		// cout << "iter " << iter << ": optimizing beta and alpha.";
 		vec coef = coefOptim(tauHat, K, D, yTilde, covar, iter);
 		betaHat = coef.subvec(0, numCovar - 1);
-		alphaHat = coef.subvec(numCovar, numSample);
+		alphaHat = coef.subvec(numCovar, numSample + numCovar-1);
 		cout << "betaHat: " << betaHat << endl;
 		// Optimize tau
 		// cout << "iter " << iter << ": optimizing tau.";
