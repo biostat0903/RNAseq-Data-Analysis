@@ -34,7 +34,7 @@ library(Rcpp)
 sourceCpp("yourpath/PEA.cpp")
 ```
 ### Example
-We have upload the example data (example.Rdata).<br>
+We have upload the example data (simData.Rdata).<br>
 * `simData[[1]]`: the binary phenotye.<br>
 * `simData[[2]]`: the covariate.<br>
 * `simData[[3]]`: the expresion level of genes in the core pathway.<br>
