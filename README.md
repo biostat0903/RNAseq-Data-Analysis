@@ -35,16 +35,21 @@ sourceCpp("yourpath/PEA.cpp")
 ```
 ### Example
 We have upload the example data (example.Rdata).<br>
-* `example[[1]]`: the binary phenotye.<br>
-* `example[[2]]`: the covariate.<br>
-* `example[[3]]`: the expresion level of genes in the core pathway.<br>
-* `example[[4]]`: the expresionlevel of potential gene.<br>
+* `simData[[1]]`: the binary phenotye.<br>
+* `simData[[2]]`: the covariate.<br>
+* `simData[[3]]`: the expresion level of genes in the core pathway.<br>
+* `simData[[4]]`: the expresionlevel of potential gene.<br>
 ### Testing of the GPI
 ```R
-PEA_res <- PEA(example[[1]], example[[2]], example[[3]], example[[4]])
-[[1]] 
-[[2]] 
-[[3]] 
+PEA_res <- PEA(simData[[1]], simData[[2]], simData[[4]], simData[[3]], 10000)
+$U
+[1] 41.57699
+$P
+[1] 0.0592
+$betaHat
+          [,1]
+[1,] -2.400715
+
 ```
 ### Support
 Before contacting us, please try the following: <br>
