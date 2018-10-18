@@ -118,8 +118,7 @@ vec coefOptim(double tau, mat K, mat D, vec yTilde, mat covar, int iter) {
 	vec deltab = D * yTilde;
 	vec delta = join_cols(deltaa, deltab);
 
-	mat HInv = inv(H);
-	vec coefOp = HInv * delta;
+	vec coefOp = solve(HInv, delta);
 
 	return coefOp;
 }
