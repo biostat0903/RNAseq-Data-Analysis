@@ -32,18 +32,19 @@ For the linear algebra, we use the [Armadillo](http://arma.sourceforge.net/) lib
 install.packages("Rcpp")
 #library Rcpp package
 library(Rcpp)
-#complie the cpp code
+#complie the Cpp code in R environment (yourpath: the path of PEA in your computer )
 sourceCpp("yourpath/PEA.cpp")
 ```
 ### Example
 We have upload the example data (simData.Rdata).<br>
 * `simData[[1]]`: vector (n by 1), the binary phenotye.<br>
-* `simData[[2]]`: matrix (n by )the covariate.<br>
-* `simData[[3]]`: the expresion level of genes in the core pathway.<br>
-* `simData[[4]]`: the expresionlevel of potential gene.<br>
+* `simData[[2]]`: matrix (n by m), the covariate.<br>
+* `simData[[3]]`: matrix (n by p), the expresion level of genes in the core pathway.<br>
+* `simData[[4]]`: vector (n by 1), the expresionlevel of potential gene.<br>
 ### Testing of the GPI
 ```R
-PEA_res <- PEA(simData[[1]], simData[[2]], simData[[4]], simData[[3]], 10000)
+> PEA_res <- PEA(simData[[1]], simData[[2]], simData[[4]], simData[[3]], 10000)
+> PEA_res
 $U
 [1] 41.57699
 $P
