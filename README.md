@@ -25,7 +25,7 @@ If you use the software, please cite <br>
 Permutaion based gEne-pAthway interactions identification in binary phenotype (PEA) is an algorithm for testing the gene-pathway interaction.
 ### Installation 
 The code depends on `Rcpp` package. If your computer do not install the `Rcpp` package, please install it first. 
-For the linear algebra, we use the [Armadillo](http://arma.sourceforge.net/) library. 
+For the linear algebra calculation, we use the [Armadillo](http://arma.sourceforge.net/) library. 
 
 ```R
 #install packages (without Rcpp package)
@@ -55,6 +55,11 @@ $betaHat
 [1,] -2.400715
 
 ```
+The output of `PEA` is a list.<br> 
+* `PEA_res$U`: scalar, the score statsitics of gene pathway interaction (GPI).<br>
+* `PEA_res$P`: scalar, the P value of the testing interaction.<br>
+* `PEA_res$betaHat`: vector, the estiamtion of coefficient of covariates.<br>
+
 ### Support
 Before contacting us, please try the following: <br>
 * The methods are described in the [papers](https://peerj.com/articles/3797/). <br>
