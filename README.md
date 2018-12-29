@@ -42,6 +42,7 @@ We have upload the example data (simData.Rdata).<br>
 * `simData[[3]]`: matrix (n by p), the expresion level of genes in the core pathway.<br>
 * `simData[[4]]`: vector (n by 1), the expresionlevel of potential gene.<br>
 ### Testing of the GPI
+After compiling the code, you can run the main function `PEA`.
 ```R
 > PEA_res <- PEA(simData[[1]], simData[[2]], simData[[4]], simData[[3]], 10000)
 > PEA_res
