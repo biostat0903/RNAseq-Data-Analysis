@@ -28,7 +28,7 @@ The code depends on `Rcpp` package. If your computer do not install the `Rcpp` p
 For the linear algebra, we use the [Armadillo](http://arma.sourceforge.net/) library. 
 
 ```R
-#install packages
+#install packages (without Rcpp package)
 install.packages("Rcpp")
 #library Rcpp package
 library(Rcpp)
