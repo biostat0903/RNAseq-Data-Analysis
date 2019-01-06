@@ -64,7 +64,7 @@ The output of `PEA` is a list.<br>
 Before contacting us, please try the following: <br>
 * The methods are described in the [papers](https://peerj.com/articles/3797/). <br>
 
-If that doesn't work, you can get in touch with us via the email.
+If that doesn't work, you can get in touch with us via the email (yangsheng@njmu.edu.cn).
 
 ### Citation
 If you use the software, please cite <br>
