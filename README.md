@@ -1,12 +1,13 @@
 # RNAseq-Data-Analysis
-The repository includes the algorithms for RNA-Seq data analysis, including differentially expressed (DE) and gene-pathway interactions (GPI). 
+The repository includes the algorithms for RNA-Seq data analysis, including differentially expressed (DE) and gene-pathway interactions (GPI). The two methods are based on [R](https://cran.r-project.org/mirrors.html). R, a free and open source software, is widely used in statistical and biological data analysis. <br>
+
 
 ## [isoVCT](https://peerj.com/articles/3797/)
 
 Variance Component Test with isoform (isoVCT) is an algorithm for identifying the DE genes for next generation seqencing (NGS) data. It can also automatically select a suitable distribution (Poisson or Negative Binomial) of each gene. 
 
 ### Getting Started 
-First, you will need to install [R](https://cran.r-project.org/mirrors.html) as well as the packages listed under the requirements header below. All of the packages you can download from CRAN package. <br>
+You should download the packages listed under the requirements header below. All of the packages you can download from CRAN package. 
 The packages are as following： `lme4, pipeR, MASS`.
 
 ### Support
