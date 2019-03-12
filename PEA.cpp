@@ -26,14 +26,9 @@ double GenKElem(vec v1, vec v2) {
 	vec m = v1 % v2;
 	double sum1 = sum(m);
 	double sum2 = 0;
-	for (int i = 0; i < (m.n_elem - 1); i++) {
-
-		for (int j = i + 1; j < m.n_elem; j++) {
-
+	for (int i = 0; i < (m.n_elem - 1); i++)
+		for (int j = i + 1; j < m.n_elem; j++) 
 			sum2 = sum2 + m[i] * m[j];
-		}
-	}
-
 	double sum = 1 + sum1 + sum2;
 	return sum;
 }
@@ -43,14 +38,9 @@ mat GenK(mat var) {
 	int n = var.n_rows;
 	mat K = zeros<mat>(n, n);
 
-	for (int i = 0; i < n; i++) {
-
-		for (int j = i; j < n; j++) {
-
+	for (int i = 0; i < n; i++) 
+		for (int j = i; j < n; j++) 
 			K(i, j) = K(j, i) = GenKElem(var.row(i).t(), var.row(j).t());
-		}
-	}
-
 	return K;
 }
 
@@ -62,23 +52,14 @@ mat GenKDel(mat var, vec testVar) {
 	int n = var.n_rows;
 	//KDel1
 	mat m1 = zeros<mat>(n, n);
-	for (int i = 0; i < n; i++) {
-
-		for (int j = i; j < n; j++) {
-
+	for (int i = 0; i < n; i++) 
+		for (int j = i; j < n; j++) 
 			m1(i, j) = m1(j, i) = testVar[i] * testVar[j];
-		}
-	}
-
 	//KDel2
 	mat m2 = zeros<mat>(n, n);
-	for (int i = 0; i < n; i++) {
-
-		for (int j = i; j < n; j++) {
-
+	for (int i = 0; i < n; i++) 
+		for (int j = i; j < n; j++)
 			m2(i, j) = m2(j, i) = 1 + sum(var.row(i) % var.row(j));
-		}
-	}
 	mat delMat = m1 % m2;
 	return delMat;
 }
