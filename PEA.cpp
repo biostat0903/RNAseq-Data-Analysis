@@ -72,9 +72,9 @@ double tauOptim(double tau, mat K, vec DVec, vec residTilde, mat covar, int iter
 	mat DInv = diagmat(1 / DVec);
 	mat V = DInv + tau * K;
 	mat VInv = inv(V);
-	mat P = VInv - VInv * covar * inv(covar.t() * VInv * covar) * covar.t() * VInv;
-	double delta = -as_scalar(residTilde.t() * VInv * K * VInv * residTilde - trace(P*K)) / 2;
-	double info = trace(P * K * P * K) / 2;
+	mat Q = VInv - VInv * covar * inv(covar.t() * VInv * covar) * covar.t() * VInv;
+	double delta = -as_scalar(residTilde.t() * VInv * K * VInv * residTilde - trace(Q*K)) / 2;
+	double info = trace(Q * K * Q * K) / 2;
 	//pow(0.5, iter) *
 	double tauOp = tau - pow(0.5, iter) * delta / info;
 
