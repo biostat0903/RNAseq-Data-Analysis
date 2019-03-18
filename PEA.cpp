@@ -71,10 +71,10 @@ double tauOptim(double tau, mat K, vec DVec, vec residTilde, mat covar, int iter
 
 	mat DInv = diagmat(1 / DVec);
 	mat V = DInv + tau * K;
-	mat VInv = inv(V);
-	mat Q = VInv - VInv * covar * inv(covar.t() * VInv * covar) * covar.t() * VInv;
-	double delta = -as_scalar(residTilde.t() * VInv * K * VInv * residTilde - trace(Q*K)) / 2;
-	double info = trace(Q * K * Q * K) / 2;
+	mat VInv = inv_sympd(V);
+	mat P = VInv - VInv * covar * inv_sympd(covar.t() * VInv * covar) * covar.t() * VInv;
+	double delta = -as_scalar(residTilde.t() * VInv * K * VInv * residTilde - trace(P*K)) / 2;
+	double info = trace(P * K * P * K) / 2;
 	//pow(0.5, iter) *
 	double tauOp = tau - pow(0.5, iter) * delta / info;
 
@@ -220,7 +220,7 @@ SEXP PEA(SEXP yIn, SEXP covarIn, SEXP varIn, SEXP testVarIn, SEXP permIn) {
 		vec residTilde = yTilde - covar * betaHat;
 		// cout << "residTilde: " << residTilde << endl;
 		mat V = DInv + tauHat * K;
-		mat VInv = inv(V);
+		mat VInv = inv_sympd(V);
 		// cout << "VInv: " << VInv << endl;
 		vec effDiff = exp(eff) - exp(-eff);
 		vec KDel_alpha = KDel * alphaHat;
