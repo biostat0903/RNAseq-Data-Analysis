@@ -68,5 +68,5 @@ Before contacting us, please try the following: <br>
 If that doesn't work, you can get in touch with us via the email (yangsheng@njmu.edu.cn).
 
 ### Citation
-If you use the software, please cite <br>
+If you use the software, please cite [Shao F, Wang Y, Zhao Y, Yang S: Identifying and exploiting gene-pathway interactions from RNA-seq data for binary phenotype. BMC Genetics 2019, 20(1):36.](https://bmcgenet.biomedcentral.com/articles/10.1186/s12863-019-0739-7)<br>
 
