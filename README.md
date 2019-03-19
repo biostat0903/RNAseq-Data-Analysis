@@ -19,7 +19,7 @@ If that doesn't work, you can get in touch with us via the email.
 
 ### Citation
 If you use the software, please cite <br>
-[Sheng Yang, Fang Shao, Weiwei Duan, Yang Zhao, Feng Chen. Variance component testing in identifying the differentially expressed genes from RNA-seq data. PeerJ. 5:e3797.](https://peerj.com/articles/3797/)
+[Yang S, Shao F, Duan W, Zhao Y, Chen F: Variance component testing for identifying differentially expressed genes in RNA-seq data. PeerJ 2017, 5.](https://peerj.com/articles/3797/)
 
 --------------------
 ## PEA
