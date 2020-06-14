@@ -1,7 +1,7 @@
 ###################
 ###Main Function###
 ###################
-isoVCT <- function(method = 'Emp', nper = 5000, 
+isoVCT <- function(method = 'Emp', nper = 1000, 
                    y, p, label){
   
   ##method: character, statistics distribution, default setting is 'Emp'; 
@@ -14,7 +14,7 @@ isoVCT <- function(method = 'Emp', nper = 5000,
   ranGroup <- rep(c(1: p), length(label))
   fitdata <- data.frame(y=y, ranGroup=ranGroup)
   fitNB <- try(glmer.nb(y ~ (1|ranGroup), fitdata), silent=T)
-
+  
   if(method == 'Emp'){
     
     if(inherits(fitNB, 'try-error')){
@@ -25,7 +25,7 @@ isoVCT <- function(method = 'Emp', nper = 5000,
       
       if(getME(fitNB, 'theta') !=0 & getME(fitNB, 'glmer.nb.theta') >= 0.01){
         
-         pval <- UTestEmpNB(nper=nper, y=y, p=p, label=label)
+        pval <- UTestEmpNB(nper=nper, y=y, p=p, label=label)
         
       }else{
         
@@ -36,7 +36,7 @@ isoVCT <- function(method = 'Emp', nper = 5000,
     }
     
   }else{
-      
+    
     if(inherits(fitNB, 'try-error')){
       
       pval <- UTestThePois(y=y, p=p, label=label)
@@ -54,7 +54,7 @@ isoVCT <- function(method = 'Emp', nper = 5000,
       }
       
     }
-  
+    
   }   
   
   return(pval)
@@ -102,7 +102,7 @@ UPerNB <- function(label, p, fit, dp, gamma){
   phi <- 1/(1 + dp*gamma)
   xMat <-  (residVec * phi) %*% X
   W <- gamma/(1 + gamma*dp)
-  e <- (gamma*d)/(1+gamma*dp)^2
+  e <- (gamma*dp)/(1+gamma*dp)^2
   W0 <- W + e*residVec 
   U <- 0.5*(xMat%*%t(xMat)-tr(W0*X%*%t(X)))
   return(U)
@@ -148,6 +148,7 @@ UTestTheNB <-  function(y, p, label){
   
   ##Fit model
   ranGroup <- rep(c(1: p), length(label))
+  sampleSize <- length(label)
   fitdata <- data.frame(y=y, ranGroup=ranGroup)
   fitNB <- glmer.nb(y ~ (1|ranGroup), fitdata)
   
@@ -198,47 +199,47 @@ UEstPois <- function(label, p, fit, W){
   W0 <- W
   U <- 0.5*(xMat%*%t(xMat) - tr(W0*X%*%t(X)))
   return(list(as.numeric(U), X))
-
+  
 }
 
 
 ###Empirical distribution
 ##Permutation
 UPerPois <- function(label, p, fit, W){
-
+  
   index <- sample(label)
   X <- as.matrix(adply(index, 1, function(a){a*diag(1, nrow=p)})[,-1])
   xMat <- resid(fit, type='response') %*% X
   W0 <- W
   U <- 0.5*(xMat%*%t(xMat)-tr(W0*X%*%t(X)))
   return(U)
-
+  
 }
 
 ##Test
 UTestEmpPois <- function(nper, y, p, label){
-
+  
   require(lme4)
   #Fit model
   ranGroup <- rep(c(1: p), length(label))
   fitPois <- try(glmer(y ~ (1|ranGroup), family = 'poisson'), silent=T)
   
   if(getME(fitPois, 'theta')==0 | inherits(fitPois, 'try-error')){
- 
+    
     stop('This situation is perhaps unsuitable to mixed model!')
-  
+    
   }else{
     
     W <- getME(fitPois, 'mu')
     U <- UEstPois(label=label, p=p, fit=fitPois, W=W)[[1]]
-  
+    
     #Permutation and test
     UDis <- replicate(nper, UPerPois(label=label, p=p, fit=fitPois, W=diag(W)))
     pval <- sum(as.numeric(U) <= UDis)/nper
     return(as.numeric(pval))
-  
+    
   }
-
+  
 }
 
 
@@ -256,9 +257,9 @@ UTestThePois <- function(y, label, p){
   fitPois <- try(glmer(y ~ (1|ranGroup), family = 'poisson'), silent=T)
   
   if(getME(fitPois, 'theta')==0 | inherits(fitPois, 'try-error')){
- 
+    
     stop('This situation is perhaps unsuitable to mixed model!')
-  
+    
   }else{
     
     ##Statistic U
@@ -266,14 +267,14 @@ UTestThePois <- function(y, label, p){
     UEst <- UEstPois(label=label, p=p, fit=fitPois, W=W)
     U <- UEst[[1]]
     X <- UEst[[2]]
-
+    
     ##Information Matrix I
     gamma <- W[1:p]
     rij <- 2*gamma*gamma
     rii <- gamma + 2*gamma^2
     I.tautau <- 0.25*((sampleSize*p/2)/2*sum(rii)+
-                      (sampleSize*p/2)*((sampleSize*p/2)-2)/4*sum(rij))
-   
+                        (sampleSize*p/2)*((sampleSize*p/2)-2)/4*sum(rij))
+    
     C <- diag(rep(gamma, length(label)))
     K <- do.call('rbind', rlply(length(label), cbind(1, diag(p))))
     a <- diag(X%*%t(X))
@@ -282,10 +283,10 @@ UTestThePois <- function(y, label, p){
     
     I.eff <- I.tautau - t(I.alphatau)%*%ginv(I.alphaalpha)%*%I.alphatau
     pval <- 1 - pchisq(U*(1/as.numeric(I.eff))*U, df=1)
-   
+    
     return(as.numeric(pval))
     
   }
-
+  
 }
 
